@@ -6,12 +6,12 @@
   <meta name="author" content="Dongx">
   
   
-  <title>归档: 2019/3 | Wecode</title>
+  <title>复杂度分析 | Wecode</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="wecode">
+    <meta name="keywords" content="算法与数据结构,">
   
 
   
@@ -38,7 +38,7 @@
     welcome: {"enable":true,"interval":30},
     start_time: "2012-01-17",
     passwords: ["6230cd6132b05852ceeea06f5db14ecc4870e9399938e96ec89e631286cfeee5", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "Dongx",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -106,25 +106,86 @@
 </header>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 2篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-03-17
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    复杂度分析
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-03-17</time>
-      <a target="_self" href="/2019/03/17/复杂度分析/">复杂度分析</a>
-    </div>
+  <article class="passage-article">
+    <h2 id="大O时间复杂度表示法"><a href="#大O时间复杂度表示法" class="headerlink" title="大O时间复杂度表示法"></a>大O时间复杂度表示法</h2><p>表示算法的执行时间随数据规模增长的变化趋势，叫做渐进时间复杂度，简称时间复杂度。</p>
+<h4 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h4><ol>
+<li>关注循环次数最多的一段代码</li>
+<li>法法则：总复杂度等于量级最大的那段代码的复杂度</li>
+<li>乘法法则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积</li>
+</ol>
+<h5 id="常见时间复杂度实例分析"><a href="#常见时间复杂度实例分析" class="headerlink" title="常见时间复杂度实例分析"></a>常见时间复杂度实例分析</h5><ol>
+<li>$常量阶O(1)$</li>
+<li>$指数阶O（ X=2^n $</li>
+<li>$对数阶O（logn）$</li>
+<li>$阶乘阶O（n！）$</li>
+<li>$线性阶O（n）$</li>
+<li>$线性对数阶O（nlogn）$</li>
+<li>$平方阶O（n^2）、立方阶O（n^3）…k次方阶O（n^k）$</li>
+</ol>
+<h6 id="以上可以分为两类，多项式量级和非多项式量级，其中非多项式量级只有O（2n）和O（n！）"><a href="#以上可以分为两类，多项式量级和非多项式量级，其中非多项式量级只有O（2n）和O（n！）" class="headerlink" title="以上可以分为两类，多项式量级和非多项式量级，其中非多项式量级只有O（2n）和O（n！）"></a>以上可以分为两类，多项式量级和非多项式量级，其中非多项式量级只有O（2n）和O（n！）</h6><p><em>一般情况下，算法中不存在循环语句、递归语句，即使有成千上万的代码，复杂度也是O(1)</em></p>
+<p><strong>最好情况时间复杂度就是，在最理想的情况下，执行这段代码的时间复杂度</strong><br><strong>最坏情况时间复杂度就是，在最糟糕的情况下，执行这段代码的时间复杂度</strong></p>
+<hr>
+<h3 id="空间复杂度分析"><a href="#空间复杂度分析" class="headerlink" title="空间复杂度分析"></a>空间复杂度分析</h3><p>表示算法的存储空间与数据规模之前的增长关系</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#大O时间复杂度表示法"><span class="toc-text">大O时间复杂度表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间复杂度分析"><span class="toc-text">时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#常见时间复杂度实例分析"><span class="toc-text">常见时间复杂度实例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#以上可以分为两类，多项式量级和非多项式量级，其中非多项式量级只有O（2n）和O（n！）"><span class="toc-text">以上可以分为两类，多项式量级和非多项式量级，其中非多项式量级只有O（2n）和O（n！）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空间复杂度分析"><span class="toc-text">空间复杂度分析</span></a></li></ol>
+  </div>
+</aside>
   
+    <aside class="passage-copyright">
+      <div>本文作者: Dongx</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://miracledx.github.io/2019/03/17/复杂度分析/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/算法与数据结构/"><i class="fa fa-tags"></i>算法与数据结构</a>
     
-    <div class="timeline-item">
-      <time>2019-03-05</time>
-      <a target="_self" href="/2019/03/05/hello-world/">Hello World</a>
     </div>
   
 </div>
+
     </main>
+    
+      <div class="site-comment-contanier">
+  <p id="site-comment-info">
+    <i class="fa fa-spinner fa-spin"></i> 评论加载中
+  </p>
+  <div id="site-comment">
+  </div>
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -228,16 +289,16 @@
     <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="javascript:void(0);" data-enable="false">
+    <a href="/2019/03/05/hello-world/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     
