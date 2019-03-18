@@ -6,12 +6,12 @@
   <meta name="author" content="Dongx">
   
   
-  <title>归档 | Wecode</title>
+  <title>根据指定属性去重 | Wecode</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="wecode">
+    <meta name="keywords" content="JAVA,">
   
 
   
@@ -38,7 +38,7 @@
     welcome: {"enable":true,"interval":30},
     start_time: "2012-01-17",
     passwords: ["6230cd6132b05852ceeea06f5db14ecc4870e9399938e96ec89e631286cfeee5", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "Dongx",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -106,43 +106,69 @@
 </header>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 5篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-03-18
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    根据指定属性去重
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-03-18</time>
-      <a target="_self" href="/2019/03/18/根据指定属性去重/">根据指定属性去重</a>
-    </div>
+  <article class="passage-article">
+    <h4 id="利用lambda对指定属性去重"><a href="#利用lambda对指定属性去重" class="headerlink" title="利用lambda对指定属性去重"></a>利用lambda对指定属性去重</h4><p><em>predicate<t>的返回值是Boolean</t></em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, Object&gt; key) &#123;</span><br><span class="line">    Map&lt;Object, Boolean&gt; seen = new ConcurrentHashMap&lt;&gt;();</span><br><span class="line">    return t -&gt; seen.putIfAbsent(key.apply(t), Boolean.TRUE) == null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>调用</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; distinctUsers = users.stream()</span><br><span class="line">        .filter(distinctByKey(User::getName))</span><br><span class="line">        .collect(Collectors.toList());</span><br><span class="line">        </span><br><span class="line">distinctUsers.forEach(System.out::println);</span><br></pre></td></tr></table></figure></p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用lambda对指定属性去重"><span class="toc-text">利用lambda对指定属性去重</span></a></li></ol>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-03-18</time>
-      <a target="_self" href="/2019/03/18/单向链表的回文字符串判断/">单向链表的回文字符串判断</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: Dongx</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://miracledx.github.io/2019/03/18/根据指定属性去重/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-03-18</time>
-      <a target="_self" href="/2019/03/18/基于链表-数组的LRU算法/">基于链表/数组的LRU算法</a>
-    </div>
   
+    <div class="passage-tags">
+     
+      <a href="/tags/JAVA/"><i class="fa fa-tags"></i>JAVA</a>
     
-    <div class="timeline-item">
-      <time>2019-03-17</time>
-      <a target="_self" href="/2019/03/17/复杂度分析/">复杂度分析</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-03-05</time>
-      <a target="_self" href="/2019/03/05/hello-world/">Hello World</a>
     </div>
   
 </div>
+
     </main>
+    
+      <div class="site-comment-contanier">
+  <p id="site-comment-info">
+    <i class="fa fa-spinner fa-spin"></i> 评论加载中
+  </p>
+  <div id="site-comment">
+  </div>
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -246,16 +272,16 @@
     <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="javascript:void(0);" data-enable="false">
+    <a href="/2019/03/18/单向链表的回文字符串判断/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     
