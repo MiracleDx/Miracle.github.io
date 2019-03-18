@@ -6,12 +6,12 @@
   <meta name="author" content="Dongx">
   
   
-  <title>归档 | Wecode</title>
+  <title>单向链表的回文字符串判断 | Wecode</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="wecode">
+    <meta name="keywords" content="算法与数据结构,">
   
 
   
@@ -38,7 +38,7 @@
     welcome: {"enable":true,"interval":30},
     start_time: "2012-01-17",
     passwords: ["6230cd6132b05852ceeea06f5db14ecc4870e9399938e96ec89e631286cfeee5", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "Dongx",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -106,37 +106,76 @@
 </header>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 4篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-03-18
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    单向链表的回文字符串判断
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-03-18</time>
-      <a target="_self" href="/2019/03/18/单向链表的回文字符串判断/">单向链表的回文字符串判断</a>
-    </div>
+  <article class="passage-article">
+    <h3 id="回文字符串判断"><a href="#回文字符串判断" class="headerlink" title="回文字符串判断"></a>回文字符串判断</h3><ol>
+<li>创建快慢指针，慢指针每移动一位，快指针移动两位</li>
+<li>通过快慢指针判断链表中位</li>
+<li>慢指针到达中位后，将快指针指向头部</li>
+<li>通过慢指针逆序后半部分链表</li>
+<li>依次比较前后链表数据判断是否回文</li>
+<li>后半部分逆序复原</li>
+</ol>
+<p>时间复杂度$O(n)$，空间复杂度$O(1)$</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#回文字符串判断"><span class="toc-text">回文字符串判断</span></a></li></ol>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-03-18</time>
-      <a target="_self" href="/2019/03/18/基于链表-数组的LRU算法/">基于链表/数组的LRU算法</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: Dongx</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://miracledx.github.io/2019/03/18/单向链表的回文字符串判断/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-03-17</time>
-      <a target="_self" href="/2019/03/17/复杂度分析/">复杂度分析</a>
-    </div>
   
+    <div class="passage-tags">
+     
+      <a href="/tags/算法与数据结构/"><i class="fa fa-tags"></i>算法与数据结构</a>
     
-    <div class="timeline-item">
-      <time>2019-03-05</time>
-      <a target="_self" href="/2019/03/05/hello-world/">Hello World</a>
     </div>
   
 </div>
+
     </main>
+    
+      <div class="site-comment-contanier">
+  <p id="site-comment-info">
+    <i class="fa fa-spinner fa-spin"></i> 评论加载中
+  </p>
+  <div id="site-comment">
+  </div>
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -240,16 +279,16 @@
     <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="javascript:void(0);" data-enable="false">
+    <a href="/2019/03/18/基于链表-数组的LRU算法/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     
