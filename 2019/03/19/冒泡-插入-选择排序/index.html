@@ -6,12 +6,12 @@
   <meta name="author" content="Dongx">
   
   
-  <title>根据指定属性去重 | Wecode</title>
+  <title>冒泡/插入/选择排序 | Wecode</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="JAVA,">
+    <meta name="keywords" content="算法与数据结构,">
   
 
   
@@ -110,7 +110,7 @@
   <div class="passage">
   <div class="passage-meta">
     <span>
-      <i class="fa fa-calendar"></i>2019-03-18
+      <i class="fa fa-calendar"></i>2019-03-19
     </span>
     
     
@@ -120,12 +120,28 @@
     
   </div>
   <h1 class="passage-title">
-    根据指定属性去重
+    冒泡/插入/选择排序
   </h1>
   
   <article class="passage-article">
-    <h4 id="利用lambda对指定属性去重"><a href="#利用lambda对指定属性去重" class="headerlink" title="利用lambda对指定属性去重"></a>利用lambda对指定属性去重</h4><p><em>predicate<t>的返回值是Boolean</t></em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, Object&gt; key) &#123;</span><br><span class="line">    Map&lt;Object, Boolean&gt; seen = new ConcurrentHashMap&lt;&gt;();</span><br><span class="line">    return t -&gt; seen.putIfAbsent(key.apply(t), Boolean.TRUE) == null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><em>调用</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; distinctUsers = users.stream()</span><br><span class="line">        .filter(distinctByKey(User::getName))</span><br><span class="line">        .collect(Collectors.toList());</span><br><span class="line">        </span><br><span class="line">distinctUsers.forEach(System.out::println);</span><br></pre></td></tr></table></figure></p>
+    <p><strong>原地排序算法：只涉及相邻数据的交换操作，只需要常量级的临时空间，空间复杂度为$O(1)$</strong><br><strong>稳定排序算法：相同大小的数据在排序前后不会改变顺序</strong>   </p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><ol>
+<li>属于原地排序算法</li>
+<li>属于稳定排序算法</li>
+<li>最好时间复杂度$O(n)$<br>最坏时间复杂度$O(n^2)$<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void bubbleSort(int[] array, int length) &#123;</span><br><span class="line">    if (length &lt;= 1) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; length; i++) &#123;</span><br><span class="line">        boolean flag = false;</span><br><span class="line">        for (int j = 0; j &lt; length - i - 1; j++) &#123;</span><br><span class="line">            if (array[j] &gt; array[j + 1]) &#123;</span><br><span class="line">                int temp = array[j];</span><br><span class="line">                array[j] = array[j + 1];</span><br><span class="line">                array[j + 1] = temp;</span><br><span class="line">                flag = true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!flag) &#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><ol>
+<li>属于原地排序算法</li>
+<li>属于稳定排序算法</li>
+<li>最好时间复杂度$O(n)$<br>最坏时间复杂度$O(n^2)$<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void insertionSort(int[] array, int length) &#123;</span><br><span class="line">    if (length &lt;= 1) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; i &lt; length; i++) &#123;</span><br><span class="line">        int value = array[i];</span><br><span class="line">        int j = i - 1;</span><br><span class="line">        for (; j &gt;= 0; j--) &#123;</span><br><span class="line">            if (array[j] &gt; value) &#123;</span><br><span class="line">                array[j + 1] = array[j];</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        array[j + 1] = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><ol>
+<li>属于原地排序算法</li>
+<li>不属于稳定排序算法</li>
+<li>最好时间复杂度$O(n^2)$<br>最坏时间复杂度$O(n^2)$<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public static void selectSort(int[] array, int length) &#123;</span><br><span class="line">    if (length &lt;= 1) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for (int i = 0; i &lt; length; i++) &#123;</span><br><span class="line">        int index = i;</span><br><span class="line">        for (int j = index + 1; j &lt; length; j++) &#123;</span><br><span class="line">            if (array[j] &lt; array[index]) &#123;</span><br><span class="line">                index = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if (i != index) &#123;</span><br><span class="line">            int temp = array[i];</span><br><span class="line">            array[i] = array[index];</span><br><span class="line">            array[index] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 
   </article>
   <aside class="table-content" id="site-toc">
@@ -134,7 +150,7 @@
     <span>目录</span>
   </div>
   <div class="table-content-main">
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用lambda对指定属性去重"><span class="toc-text">利用lambda对指定属性去重</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#冒泡排序"><span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入排序"><span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择排序"><span class="toc-text">选择排序</span></a></li></ol>
   </div>
 </aside>
   
@@ -143,7 +159,7 @@
       
         <div>
           原文链接: 
-          <a href target="_blank">https://miracledx.github.io/2019/03/18/根据指定属性去重/</a>
+          <a href target="_blank">https://miracledx.github.io/2019/03/19/冒泡-插入-选择排序/</a>
         </div>
       
       <div>
@@ -154,7 +170,7 @@
   
     <div class="passage-tags">
      
-      <a href="/tags/JAVA/"><i class="fa fa-tags"></i>JAVA</a>
+      <a href="/tags/算法与数据结构/"><i class="fa fa-tags"></i>算法与数据结构</a>
     
     </div>
   
@@ -269,10 +285,10 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="/2019/03/19/冒泡-插入-选择排序/" data-enable="true">
+    <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="/2019/03/18/单向链表的回文字符串判断/" data-enable="true">
+    <a href="/2019/03/18/根据指定属性去重/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
