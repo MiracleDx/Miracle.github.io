@@ -6,12 +6,12 @@
   <meta name="author" content="Dongx">
   
   
-  <title>归档 | Wecode</title>
+  <title>跳表/散列表 | Wecode</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="wecode">
+    <meta name="keywords" content="算法与数据结构,">
   
 
   
@@ -38,7 +38,7 @@
     welcome: {"enable":true,"interval":30},
     start_time: "2012-01-17",
     passwords: ["6230cd6132b05852ceeea06f5db14ecc4870e9399938e96ec89e631286cfeee5", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "Dongx",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -106,73 +106,98 @@
 </header>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 10篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-03-22
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    跳表/散列表
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-03-22</time>
-      <a target="_self" href="/2019/03/22/跳表-散列表/">跳表/散列表</a>
-    </div>
+  <article class="passage-article">
+    <h3 id="跳表"><a href="#跳表" class="headerlink" title="跳表"></a>跳表</h3><p><em>针对单链表提升查询效率， 对链表建立多级索引， 就是跳表。</em>   </p>
+<ol>
+<li>查找的时间复杂度$O(logn)$</li>
+<li>插入的时间复杂度$O(logn)$</li>
+<li>空间复杂度$O(n)$</li>
+</ol>
+<p>Redis中的有序集合 Sorted Set -&gt; 跳表<br>主要支持以下操作</p>
+<ol>
+<li>插入一个数据</li>
+<li>删除一个数据</li>
+<li>查找一个数据</li>
+<li>按照区间查找数据</li>
+<li>迭代输出有序序列 </li>
+</ol>
+<h3 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h3><p><em>数组的一种扩展（数组支持下标随机访问数据的特性），由数组演化而来。</em></p>
+<p>构造散列函数的基本要求：</p>
+<ol>
+<li>散列函数计算得到的散列值是一个非负整数</li>
+<li>如果key1 = key2，那hash(key1) == hash(key2)</li>
+<li>如果key ≠ key2，那hash(key1) ≠ hash(key2)</li>
+</ol>
+<h4 id="解决散列冲突的方法"><a href="#解决散列冲突的方法" class="headerlink" title="解决散列冲突的方法"></a>解决散列冲突的方法</h4><h5 id="开放寻址法"><a href="#开放寻址法" class="headerlink" title="开放寻址法"></a>开放寻址法</h5><ol>
+<li>线性探测：从当前位置开始，依次往后查找，直到有空闲位置为止</li>
+<li>二次探测：探测步长为线性探测的二次方</li>
+<li>双重散列：使用一组散列函数，直到找到空间的存储位置</li>
+</ol>
+<h5 id="链表法"><a href="#链表法" class="headerlink" title="链表法"></a>链表法</h5><p>在散列表中构建桶或者槽对应一条链表，所有散列值相同的元素都处于相同的槽位</p>
+<h4 id="如何选择"><a href="#如何选择" class="headerlink" title="如何选择"></a>如何选择</h4><ol>
+<li>当数据量比较小、装载因子小的时候，适合开放寻址法(ThreadLocalMap)</li>
+<li>大对象、大数据量适合链表法，并且更加灵活，支持更多的优化策略</li>
+</ol>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#跳表"><span class="toc-text">跳表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#散列表"><span class="toc-text">散列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解决散列冲突的方法"><span class="toc-text">解决散列冲突的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#开放寻址法"><span class="toc-text">开放寻址法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#链表法"><span class="toc-text">链表法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何选择"><span class="toc-text">如何选择</span></a></li></ol></li></ol>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-03-21</time>
-      <a target="_self" href="/2019/03/21/二分查找法/">二分查找法</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: Dongx</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://miracledx.github.io/2019/03/22/跳表-散列表/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-03-20</time>
-      <a target="_self" href="/2019/03/20/利用LinkedHashMap实现LRU算法/">利用LinkedHashMap实现LRU算法</a>
-    </div>
   
+    <div class="passage-tags">
+     
+      <a href="/tags/算法与数据结构/"><i class="fa fa-tags"></i>算法与数据结构</a>
     
-    <div class="timeline-item">
-      <time>2019-03-20</time>
-      <a target="_self" href="/2019/03/20/归并-快速排序/">归并/快速排序</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-03-19</time>
-      <a target="_self" href="/2019/03/19/冒泡-插入-选择排序/">冒泡/插入/选择排序</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-03-18</time>
-      <a target="_self" href="/2019/03/18/根据指定属性去重/">根据指定属性去重</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-03-18</time>
-      <a target="_self" href="/2019/03/18/单向链表的回文字符串判断/">单向链表的回文字符串判断</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-03-18</time>
-      <a target="_self" href="/2019/03/18/基于链表-数组的LRU算法/">基于链表/数组的LRU算法</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-03-17</time>
-      <a target="_self" href="/2019/03/17/复杂度分析/">复杂度分析</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-03-05</time>
-      <a target="_self" href="/2019/03/05/hello-world/">Hello World</a>
     </div>
   
 </div>
+
     </main>
+    
+      <div class="site-comment-contanier">
+  <p id="site-comment-info">
+    <i class="fa fa-spinner fa-spin"></i> 评论加载中
+  </p>
+  <div id="site-comment">
+  </div>
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -276,16 +301,16 @@
     <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="javascript:void(0);" data-enable="false">
+    <a href="/2019/03/21/二分查找法/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     
